@@ -11,33 +11,36 @@
         "vote" => 9.2 --}}
 @section("main-content")
 
-    <h1 class="fw-bold text-center">Movies List</h1>
+    <h1 class="fw-bold text-center text-white py-4">Movies List</h1>
 
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-around">
 
             @forelse ( $movies as $movie )
 
-            <div class="col-3">
-                <div class="card">
+            <div class="col-4">
+                <div class="card my-3 singleMovie p-2">
                     <div class="card-body">
-                        <h3>Titolo {{ $movie->title }}</h3>
-                        <h4>Original Title: {{ $movie->original_title }}</h4>
+                        <h3>Titolo: <span>{{ $movie->title }}</span></h3>
+                        <h4>Titolo originale: <span>{{ $movie->original_title }}</span></h4>
                         <ul>
                             <li>
-                                Nazionalità: {{ $movie->nationality }}
+                                Nazionalità: <span>{{ $movie->nationality }}</span>
                             </li>
                             <li>
-                                Prima: {{ $movie->date }}
+                                Prima: <span>{{ $movie->date }}</span>
                             </li>
                             <li>
-                                Voto della critica: {{ $movie->vote }}
+                                Voto della critica: <span>{{ $movie->vote }}</span>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
+
             @empty
+
+                <h1>No Movies List available...</h1>
 
             @endforelse
 
